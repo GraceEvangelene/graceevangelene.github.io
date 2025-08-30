@@ -1964,20 +1964,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="flex justify-center space-x-4">
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white px-8 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg"
-            >
-              View My Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 rounded-full transition-all transform hover:scale-105"
-            >
-              Let's Connect
-            </button>
-          </div>
+
         </div>
       </section>
 
