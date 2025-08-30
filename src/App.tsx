@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import emailjs from '@emailjs/browser';
 import {
   Brain,
   Code,
-  Cpu,
+
   User,
   Briefcase,
   Mail,
@@ -15,8 +15,7 @@ import {
   Zap,
   Target,
   Award,
-  Layers,
-  Database,
+
   Globe,
   Lightbulb,
   Rocket,
@@ -97,7 +96,7 @@ import {
 } from "react-icons/bi";
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState("home");
+
   const [visitorType, setVisitorType] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
