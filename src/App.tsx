@@ -127,6 +127,17 @@ const App = () => {
   const threeRef = useRef<HTMLDivElement>(null);
   const [expandedCard, setExpandedCard] = useState(null);
 
+  // Device detection for emoji compatibility
+  const [isIOS, setIsIOS] = useState(false);
+
+  // Device detection for emoji compatibility
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    const isIOSDevice = /iPad|iPhone|iPod/.test(userAgent);
+    const isMacOS = /Mac OS X|macOS/.test(userAgent);
+    setIsIOS(isIOSDevice || isMacOS);
+  }, []);
+
   // Scroll listener for side navigation
   useEffect(() => {
     const handleScroll = () => {
@@ -1200,9 +1211,9 @@ const App = () => {
         }
       `}</style>
 
-      {/* Animated Side Navigation */}
+      {/* Animated Side Navigation - Hidden on mobile */}
       {showSideNav && (
-        <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50">
+        <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
           <div className="relative">
             <div className="space-y-6">
               {navigationItems.map((item, index) => {
@@ -1251,6 +1262,23 @@ const App = () => {
         </div>
       )}
 
+      {/* Mobile Navigation Line - Visible only on mobile */}
+      <div className="lg:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="flex space-x-4 bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-600">
+          {navigationItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="p-2 text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                <IconComponent className="w-5 h-5" />
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* Homepage */}
       <section id="home" className="min-h-screen relative overflow-hidden">
@@ -1264,7 +1292,7 @@ const App = () => {
           <div className="max-w-4xl mx-auto text-center z-10">
             <div className="mb-4">
               <h1 className="text-6xl font-bold mb-3 py-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-                Hey there! 👋
+                Hey there! {isIOS ? "👋" : ""}
               </h1>
               <h2 className="text-4xl font-semibold mb-6">
                 I'm Grace Evangelene
@@ -2297,8 +2325,212 @@ const App = () => {
           </div>
         </div>
 
-        {/* Background Card Container - Reduced padding */}
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-2 border border-gray-700">
+        {/* Mobile List View - Visible only on small screens */}
+        <div className="lg:hidden bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-700 mb-6">
+          <div className="space-y-4">
+            {[
+              {
+                id: 1,
+                title: "Software Developer Intern",
+                company: "Elysium Security",
+                period: "Feb 2025 – Present",
+                duration: "Current",
+                location: "Buffalo, NY",
+                type: "Current Role",
+                icon: Shield,
+                color: "cyan",
+                achievements: [
+                  "Optimized deep learning models (YOLOv8, R(2+1)D, Transformer–BiLSTM–CNN)",
+                  "Deployed real-time Flask + Docker + RTSP system with dashboard alerts for officials",
+                  "Boosted theft detection accuracy by 50% and engineered scalable pipelines and tracked experiments (PyTorch, TensorFlow, OpenCV, MLflow, GitHub)",
+                ],
+                technologies: [
+                  "PyTorch",
+                  "OpenCV",
+                  "YOLO",
+                  "3D CNNs",
+                  "Flask APIs",
+                  "Docker",
+                  "MLflow",
+                ],
+                year: "2025",
+              },
+              {
+                id: 2,
+                title: "MS Computer Science & Engineering",
+                company: "University at Buffalo",
+                period: "2024 – 2026",
+                duration: "2 years",
+                location: "Buffalo, NY",
+                type: "Graduate Education",
+                icon: GraduationCap,
+                color: "purple",
+                achievements: [
+                  "Maintained a 3.6 GPA in AI/ML track with strong performance in core subjects",
+                  "Earned top grades in Algorithms, Operating Systems, and Deep Learning",
+                ],
+                technologies: [
+                  "Machine Learning",
+                  "Deep Learning",
+                  "Algorithm Design",
+                  "Operating Systems",
+                  "Database Systems",
+                ],
+                year: "2024",
+              },
+              {
+                id: 3,
+                title: "Full Stack Web Developer",
+                company: "Spartangator Digital",
+                period: "Aug 2023 – Jul 2024",
+                duration: "12 months",
+                location: "Hyderabad, India",
+                type: "Full-time",
+                icon: Monitor,
+                color: "cyan",
+                achievements: [
+                  "Built and deployed scalable full-stack apps using MERN, Django, Flask and RESTful APIs on AWS/GCP",
+                  "Improved accessibility and responsiveness with WCAG-compliant UIs",
+                ],
+                technologies: [
+                  "MERN Stack",
+                  "Django",
+                  "Flask",
+                  "AWS",
+                  "GCP",
+                  "Tailwind CSS",
+                  "RESTful APIs",
+                ],
+                year: "2023",
+              },
+              {
+                id: 4,
+                title: "Full Stack Web Development Intern",
+                company: "Spartangator Digital",
+                period: "Jan – Jun 2023",
+                duration: "6 months",
+                location: "Hyderabad, India",
+                type: "Internship",
+                icon: Code,
+                color: "purple",
+                achievements: [
+                  "Delivered a production-ready MERN app for seamless inventory and transaction management",
+                  "Enabled data-driven decisions with real-time analytics and reporting",
+                ],
+                technologies: [
+                  "MongoDB",
+                  "Express.js",
+                  "React",
+                  "Node.js",
+                  "Real-time Analytics",
+                  "REST APIs",
+                ],
+                year: "2023",
+              },
+            ].map((item) => {
+              const isExpanded = expandedCard === item.id;
+              const getColorClasses = (color) => {
+                const colors = {
+                  cyan: {
+                    border: "border-cyan-500/50",
+                    icon: "bg-cyan-500",
+                    text: "text-cyan-400",
+                    tag: "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30",
+                  },
+                  purple: {
+                    border: "border-purple-500/50",
+                    icon: "bg-purple-500",
+                    text: "text-purple-400",
+                    tag: "bg-purple-500/20 text-purple-300 border border-purple-500/30",
+                  },
+                };
+                return colors[color];
+              };
+              const colors = getColorClasses(item.color);
+
+              return (
+                <div
+                  key={item.id}
+                  className={`bg-gray-700/50 rounded-xl border ${colors.border} p-4 transition-all duration-300 hover:shadow-xl cursor-pointer group`}
+                  onClick={() => setExpandedCard(isExpanded ? null : item.id)}
+                >
+                  <div className="flex items-start space-x-3">
+                    <div className={`w-10 h-10 ${colors.icon} rounded-full flex items-center justify-center flex-shrink-0`}>
+                      <item.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-lg font-semibold text-white leading-tight">
+                          {item.title}
+                        </h3>
+                        <div className={`px-2 ${colors.tag} rounded-md text-xs font-semibold ml-2`}>
+                          {item.type}
+                        </div>
+                      </div>
+                      <p className={`font-medium ${colors.text} text-sm mb-1`}>
+                        {item.company}
+                      </p>
+                      <div className="flex items-center space-x-4 text-xs text-gray-400 mb-2">
+                        <span>{item.period}</span>
+                        <span>{item.duration}</span>
+                        <span>{item.location}</span>
+                      </div>
+                      
+                      {/* Expansion indicator */}
+                      <div className="flex items-center justify-center">
+                        <ChevronDown
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${
+                            isExpanded ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+
+                      {/* Expanded Content */}
+                      {isExpanded && (
+                        <div className="mt-4 pt-4 border-t border-gray-600 space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                          {/* Achievements */}
+                          <div className="space-y-2">
+                            <h4 className="text-sm font-semibold text-gray-300">
+                              Key Achievements
+                            </h4>
+                            {item.achievements.map((achievement, idx) => (
+                              <div key={idx} className="flex items-start">
+                                <Star className="w-2 h-2 text-yellow-500 mr-2 mt-1 flex-shrink-0" />
+                                <span className="text-xs text-gray-300 leading-relaxed">
+                                  {achievement}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Technologies */}
+                          <div className="space-y-2">
+                            <h4 className="text-sm font-semibold text-gray-300">
+                              Technologies
+                            </h4>
+                            <div className="flex flex-wrap gap-1">
+                              {item.technologies.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="px-1 py-0.5 bg-gray-700 text-gray-300 rounded text-xs font-medium border border-gray-600"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Background Card Container - Reduced padding - Hidden on mobile, visible on large screens */}
+        <div className="hidden lg:block bg-gray-800/50 backdrop-blur-sm rounded-3xl p-2 border border-gray-700">
           {/* Horizontal Timeline Container - Increased padding */}
           <div className="relative max-w-6xl mx-auto py-10">
             {/* Horizontal Timeline Line */}
