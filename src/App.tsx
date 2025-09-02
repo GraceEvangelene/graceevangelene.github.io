@@ -1291,7 +1291,7 @@ const App = () => {
         <div className="min-h-screen flex items-center justify-center p-4 relative">
           <div className="max-w-4xl mx-auto text-center z-10">
             <div className="mb-4">
-              <h1 className="text-6xl font-bold mb-3 py-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+              <h1 className="text-6xl font-bold mb-3 py-3 leading-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
                 Hey there! {isIOS ? "👋" : ""}
               </h1>
               <h2 className="text-4xl font-semibold mb-6">
@@ -1871,7 +1871,7 @@ const App = () => {
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="mb-6 mt-8">
-            <h1 className="text-6xl font-bold mb-5 py-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h1 className="text-6xl font-bold mb-5 py-3 leading-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Building Tomorrow's Solutions Today
             </h1>
             <p className="text-2xl text-gray-300 mb-2 max-w-4xl mx-auto leading-relaxed">
