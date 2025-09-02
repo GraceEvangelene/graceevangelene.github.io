@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Prevent horizontal scroll while maintaining proportions */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure SVG and content don't cause horizontal overflow */
+svg {
+  max-width: 100%;
+  height: auto;
+}

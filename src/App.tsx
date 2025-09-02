@@ -1250,25 +1250,7 @@ const App = () => {
           </div>
         </div>
       )}
-      {/* Achievement Stats */}
-      {showSideNav && (
-        <div className="fixed top-2 left-2 z-50 bg-gray-800/80 backdrop-blur-sm rounded-lg p-2 border border-cyan-500/30">
-          <div className="text-center space-y-0">
-            <div className="text-xs text-cyan-400 font-semibold">
-              {stats.linesOfCode.toLocaleString()}+
-            </div>
-            <div className="text-xs text-gray-400">Lines of Code</div>
-            <div className="text-sm text-purple-400 font-semibold">
-              {stats.projects}+
-            </div>
-            <div className="text-xs text-gray-400">Projects</div>
-            <div className="text-sm text-green-400 font-semibold">
-              {stats.technologies}+
-            </div>
-            <div className="text-xs text-gray-400">Technologies</div>
-          </div>
-        </div>
-      )}
+
 
       {/* Homepage */}
       <section id="home" className="min-h-screen relative overflow-hidden">
@@ -1905,8 +1887,8 @@ const App = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 mb-8">
-            <h2 className="text-3xl font-bold mb-6 text-center">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-700 mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
               Why Choose Me?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
@@ -1970,7 +1952,7 @@ const App = () => {
 
       {/* Skills Showcase - NEW Honeycomb Technical Arsenal */}
       <section id="skills" className="py-8 px-10 max-w-7xl mx-auto">
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-7 border border-gray-700">
+        <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-10 lg:p-16 border border-gray-700">
           <div className="text-center mb-16">
             <div className="inline-block">
               <h2
@@ -1986,7 +1968,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center ml-10">
+          <div className="flex items-center justify-start pl-8 lg:pl-16">
             <div className="relative transform scale-125">
               <svg
                 width="1200"
@@ -2170,21 +2152,21 @@ const App = () => {
       </section>
 
       {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-8 px-6 mt-30 max-w-7xl mx-auto bg-gray-800/30 rounded-3xl"
-      >
+              <section
+          id="projects"
+          className="py-8 px-4 sm:px-6 mt-30 max-w-7xl mx-auto bg-gray-800/30 rounded-3xl"
+        >
         <div className="text-center mb-6">
           <div className="inline-block">
-            <h2
-              className="text-4xl font-semibold tracking-wide bg-gradient-to-r from-indigo-300 via-white to-cyan-200 bg-clip-text text-transparent"
-              style={{
-                filter:
-                  "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)) drop-shadow(0 0 15px rgba(6, 182, 212, 0.2))",
-              }}
-            >
-              Featured Projects
-            </h2>
+                          <h2
+                className="text-3xl sm:text-4xl font-semibold tracking-wide bg-gradient-to-r from-indigo-300 via-white to-cyan-200 bg-clip-text text-transparent"
+                style={{
+                  filter:
+                    "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)) drop-shadow(0 0 15px rgba(6, 182, 212, 0.2))",
+                }}
+              >
+                Featured Projects
+              </h2>
             <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mt-2"></div>
           </div>
         </div>
@@ -2303,7 +2285,7 @@ const App = () => {
         <div className="text-center mb-6">
           <div className="inline-block">
             <h2
-              className="text-4xl font-semibold tracking-wide bg-gradient-to-r from-indigo-300 via-white to-cyan-200 bg-clip-text text-transparent"
+              className="text-3xl sm:text-4xl font-semibold tracking-wide bg-gradient-to-r from-indigo-300 via-white to-cyan-200 bg-clip-text text-transparent"
               style={{
                 filter:
                   "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)) drop-shadow(0 0 15px rgba(6, 182, 212, 0.2))",
@@ -2612,7 +2594,7 @@ const App = () => {
         <div className="text-center mb-6">
           <div className="inline-block">
             <h2
-              className="text-4xl font-semibold tracking-wide bg-gradient-to-r from-indigo-300 via-white to-cyan-200 bg-clip-text text-transparent"
+              className="text-3xl sm:text-4xl font-semibold tracking-wide bg-gradient-to-r from-indigo-300 via-white to-cyan-200 bg-clip-text text-transparent"
               style={{
                 filter:
                   "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)) drop-shadow(0 0 15px rgba(6, 182, 212, 0.2))",
@@ -2776,7 +2758,7 @@ const App = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-16 px-4 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent px-4">
           Let's Build Something Amazing Together
         </h2>
 
