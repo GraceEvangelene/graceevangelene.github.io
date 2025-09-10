@@ -1173,7 +1173,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white relative">
+    <div className="min-h-screen bg-gray-900 text-white relative overflow-x-hidden">
       <style jsx>{`
         .carousel-container {
           overflow: hidden;
@@ -1299,16 +1299,16 @@ const App = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <div className="min-h-screen flex items-center justify-center p-4 relative">
-          <div className="max-w-4xl mx-auto text-center z-10">
+        <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 relative">
+          <div className="w-full max-w-4xl mx-auto text-center z-10">
             <div className="mb-4">
-              <h1 className="text-6xl font-bold mb-3 py-3 leading-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+              <h1 className="text-4xl sm:text-6xl font-bold mb-3 py-3 leading-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
                 Hey there! {isIOS ? "👋" : ""}
               </h1>
-              <h2 className="text-4xl font-semibold mb-6">
+              <h2 className="text-2xl sm:text-4xl font-semibold mb-6">
                 I'm Grace Evangelene
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                 AI/ML Engineer & Full-Stack Developer passionate about building
                 intelligent systems that solve real-world problems. Currently
                 pursuing MS in Computer Science at University at Buffalo.
@@ -1316,10 +1316,10 @@ const App = () => {
             </div>
 
             <div className="mb-6">
-              <p className="text-lg text-gray-400 mb-6">
+              <p className="text-sm sm:text-lg text-gray-400 mb-6">
                 What brings you here today?
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto px-2">
                 <button
                   onClick={() => handleVisitorTypeSelect("recruiter")}
                   className="p-4 sm:p-6 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
@@ -1882,52 +1882,64 @@ const App = () => {
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="mb-6 mt-8">
-            <h1 className="text-6xl font-bold mb-5 py-3 leading-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-6xl font-bold mb-5 py-3 leading-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Building Tomorrow's Solutions Today
             </h1>
-            <p className="text-2xl text-gray-300 mb-2 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-2xl text-gray-300 mb-2 max-w-4xl mx-auto leading-relaxed">
               I transform complex problems into intelligent, scalable solutions
               using cutting-edge AI/ML and full-stack technologies
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-            <div className="bg-gradient-to-br from-cyan-600/20 to-blue-600/20 p-3 rounded-xl border border-cyan-500/30 backdrop-blur-sm">
-              <Zap className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">
-                AI Innovation
-              </h3>
-              <p className="text-gray-300">
-                Crime detection systems to handwriting recognition, creating AI
-                that makes a real-world impact
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mb-10">
+            <div className="bg-gradient-to-br from-cyan-600/20 to-blue-600/20 p-3 rounded-xl border border-cyan-500/30 backdrop-blur-sm flex flex-col sm:flex-col md:flex-col">
+              <div className="flex items-center space-x-3 sm:flex-col sm:items-center sm:space-x-0">
+                <Zap className="w-8 h-8 sm:w-12 sm:h-12 text-cyan-400 flex-shrink-0 sm:mx-auto sm:mb-4" />
+                <div className="flex-1 sm:text-center">
+                  <h3 className="text-sm sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 text-cyan-400">
+                    AI Innovation
+                  </h3>
+                  <p className="text-xs sm:text-base text-gray-300">
+                    Crime detection systems to handwriting recognition, creating AI
+                    that makes a real-world impact
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-3 rounded-xl border border-purple-500/30 backdrop-blur-sm">
-              <Rocket className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-purple-400">
-                Full-Stack Mastery
-              </h3>
-              <p className="text-gray-300">
-                End-to-end development expertise with modern frameworks, cloud
-                deployment, and scalable architectures
-              </p>
+            <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-3 rounded-xl border border-purple-500/30 backdrop-blur-sm flex flex-col sm:flex-col md:flex-col">
+              <div className="flex items-center space-x-3 sm:flex-col sm:items-center sm:space-x-0">
+                <Rocket className="w-8 h-8 sm:w-12 sm:h-12 text-purple-400 flex-shrink-0 sm:mx-auto sm:mb-4" />
+                <div className="flex-1 sm:text-center">
+                  <h3 className="text-sm sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 text-purple-400">
+                    Full-Stack Mastery
+                  </h3>
+                  <p className="text-xs sm:text-base text-gray-300">
+                    End-to-end development expertise with modern frameworks, cloud
+                    deployment, and scalable architectures
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-600/20 to-teal-600/20 p-3 rounded-xl border border-green-500/30 backdrop-blur-sm">
-              <Target className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-green-400">
-                Problem Solver
-              </h3>
-              <p className="text-gray-300">
-                I don't just code—I understand business needs and deliver
-                solutions that drive measurable results
-              </p>
+            <div className="bg-gradient-to-br from-green-600/20 to-teal-600/20 p-3 rounded-xl border border-green-500/30 backdrop-blur-sm flex flex-col sm:flex-col md:flex-col">
+              <div className="flex items-center space-x-3 sm:flex-col sm:items-center sm:space-x-0">
+                <Target className="w-8 h-8 sm:w-12 sm:h-12 text-green-400 flex-shrink-0 sm:mx-auto sm:mb-4" />
+                <div className="flex-1 sm:text-center">
+                  <h3 className="text-sm sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 text-green-400">
+                    Problem Solver
+                  </h3>
+                  <p className="text-xs sm:text-base text-gray-300">
+                    I don't just code—I understand business needs and deliver
+                    solutions that drive measurable results
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-700 mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+            <h2 className="text-xl sm:text-3xl font-bold mb-6 text-center">
               Why Choose Me?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
