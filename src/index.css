@@ -5,7 +5,11 @@
 /* Prevent horizontal scroll while maintaining proportions */
 html, body {
   overflow-x: hidden;
+  background-color: #111827; /* match bg-gray-900 */
 }
+
+/* Remove default body margin to avoid light borders */
+body { margin: 0; }
 
 /* Ensure SVG and content don't cause horizontal overflow */
 svg {
