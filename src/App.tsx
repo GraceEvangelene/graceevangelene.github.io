@@ -1308,53 +1308,53 @@ const App = () => {
               <p className="text-lg text-gray-400 mb-6">
                 What brings you here today?
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto">
                 <button
                   onClick={() => handleVisitorTypeSelect("recruiter")}
-                  className="p-6 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
+                  className="p-4 sm:p-6 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
                 >
-                  <Briefcase className="w-8 h-8 mx-auto mb-3 group-hover:animate-bounce" />
-                  <h3 className="text-lg font-semibold mb-2">
+                  <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 group-hover:animate-bounce" />
+                  <h3 className="text-sm sm:text-lg font-semibold mb-2">
                     I'm a Recruiter
                   </h3>
-                  <p className="text-sm text-blue-100">
+                  <p className="text-xs sm:text-sm text-blue-100">
                     Search for relevant skills & experience
                   </p>
                 </button>
 
                 <button
                   onClick={() => handleVisitorTypeSelect("developer")}
-                  className="p-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
+                  className="p-4 sm:p-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
                 >
-                  <Code className="w-8 h-8 mx-auto mb-3 group-hover:animate-bounce" />
-                  <h3 className="text-lg font-semibold mb-2">
+                  <Code className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 group-hover:animate-bounce" />
+                  <h3 className="text-sm sm:text-lg font-semibold mb-2">
                     I'm a Fellow Developer
                   </h3>
-                  <p className="text-sm text-purple-100">
+                  <p className="text-xs sm:text-sm text-purple-100">
                     Let's collaborate on something amazing
                   </p>
                 </button>
 
                 <button
                   onClick={() => handleVisitorTypeSelect("aspiring")}
-                  className="p-6 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
+                  className="p-4 sm:p-6 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
                 >
-                  <Brain className="w-8 h-8 mx-auto mb-3 group-hover:animate-bounce" />
-                  <h3 className="text-lg font-semibold mb-2">
+                  <Brain className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 group-hover:animate-bounce" />
+                  <h3 className="text-sm sm:text-lg font-semibold mb-2">
                     I'm an Aspiring Developer
                   </h3>
-                  <p className="text-sm text-green-100">
+                  <p className="text-xs sm:text-sm text-green-100">
                     Get a custom learning schedule
                   </p>
                 </button>
 
                 <button
                   onClick={() => handleVisitorTypeSelect("general")}
-                  className="p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
+                  className="p-4 sm:p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all transform hover:scale-105 group shadow-xl"
                 >
-                  <User className="w-8 h-8 mx-auto mb-3 group-hover:animate-bounce" />
-                  <h3 className="text-lg font-semibold mb-2">Just Exploring</h3>
-                  <p className="text-sm text-orange-100">
+                  <User className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 group-hover:animate-bounce" />
+                  <h3 className="text-sm sm:text-lg font-semibold mb-2">Just Exploring</h3>
+                  <p className="text-xs sm:text-sm text-orange-100">
                     Browse through everything
                   </p>
                 </button>
