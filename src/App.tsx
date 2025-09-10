@@ -1163,6 +1163,15 @@ const App = () => {
     );
   };
 
+  // Hide mobile nav on very small screens (<800px)
+  const [isNarrow, setIsNarrow] = useState(false);
+  useEffect(() => {
+    const updateIsNarrow = () => setIsNarrow(window.innerWidth < 800);
+    updateIsNarrow();
+    window.addEventListener("resize", updateIsNarrow);
+    return () => window.removeEventListener("resize", updateIsNarrow);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900 text-white relative">
       <style jsx>{`
@@ -1262,23 +1271,25 @@ const App = () => {
         </div>
       )}
 
-      {/* Mobile Navigation Line - Visible only on mobile */}
-      <div className="lg:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex space-x-4 bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-600">
-          {navigationItems.map((item) => {
-            const IconComponent = item.icon;
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="p-2 text-gray-400 hover:text-cyan-400 transition-colors"
-              >
-                <IconComponent className="w-5 h-5" />
-              </button>
-            );
-          })}
+      {/* Mobile Navigation Line - Hidden entirely on very small screens (<800px) */}
+      {!isNarrow && (
+        <div className="lg:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="flex space-x-4 bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-600">
+            {navigationItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="p-2 text-gray-400 hover:text-cyan-400 transition-colors"
+                >
+                  <IconComponent className="w-5 h-5" />
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Homepage */}
       <section id="home" className="min-h-screen relative overflow-hidden">
